@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Architecture\Services\ServiceContainer;
 
+
 Route::get('/', function () {
     return view('template');
 });
@@ -23,13 +24,18 @@ Route::get('/contact', function () {
 Route::get("/usluge",[ServiceController::class, "usluge"])->name('usluge');
 Route::get("opsirnije/{id}", [ServiceController::class, "opsirnije"])->name("opsirnije");
 
+
 Route::middleware(CheckUserLoggedIn::class)->group(function(){
     Route::redirect('/admin', '/admin/login');
+    Route::redirect('/login', '/admin/login');
     Route::get("/admin/login", [AuthController::class, "login"])->name("login");
     Route::post("/admin/login", [AuthController::class, "storeLogin"])->name("storeLogin");
 
+
     Route::get("/admin/register", [AuthController::class, "register"])->name("register");
     Route::post("/admin/register", [AuthController::class, "storeRegister"])->name("storeRegister");
+
+
 });
 
 Route::get("/admin/logout", [AuthController::class, "logout"])->name("logout");
@@ -62,4 +68,6 @@ Route::middleware(AuthMiddleware::class)->group(function(){
     Route::post("/admin/edit-user/{id}", [UserController::class, "update"])->name("user.update");
     Route::get("/admin/delete-user/{id}", [UserController::class, "delete"])->name("user.delete");
     Route::post("/admin/delete-user/{id}", [UserController::class, "destroy"])->name("user.destroy");
+
+
 });

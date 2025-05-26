@@ -41,7 +41,7 @@ Lista Usluga
                             <a class="nav-link active" href="/">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                             <a class="nav-link" href="/list">Sve Usluge</a>
+                             <a class="nav-link" href="/usluge">Sve Usluge</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="/contact">Contact</a>

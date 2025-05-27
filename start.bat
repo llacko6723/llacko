@@ -3,6 +3,10 @@ echo -------------------------------------
 echo Pokretanje Laravel PWA aplikacije...
 echo -------------------------------------
 
+REM Kreiranje baze podataka llacko ako ne postoji
+echo Kreiram bazu podataka 'llacko' ako vec ne postoji...
+"C:\xampp\mysql\bin\mysql.exe" -u root -e "CREATE DATABASE IF NOT EXISTS llacko;"
+
 REM Instaliranje PHP paketa preko Composer-a
 composer install
 
